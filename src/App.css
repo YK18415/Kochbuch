@@ -1,0 +1,41 @@
+/* Damit die Seite die volle Höhe bekommt */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Das App-Container-Layout */
+.app {
+  display: flex; /*Damit alle Komponenten in App.tsx vertikal dargestellt werden.*/
+  flex-direction: column; /*Damit alle Komponenten in App.tsx vertikal dargestellt werden. Beides muss in Kombination benutzt werden.*/
+  min-height: 100vh; /* volle Höhe des Bildschirms */
+}
+
+/* Main-Bereich dehnt sich aus und schiebt Footer nach unten */
+main {
+  flex: 1; /*imm den ganzen verfügbaren Platz zwischen Header und Footer ein.*/
+  padding: 1.5rem;
+  background-color: #1a1a2e;
+  display: block; /* wichtig: block, nicht flex */
+  box-sizing: border-box;
+}
+
+/* Header-Stil */
+header {
+  width: 100%;
+  background-color: #1a1a2e;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+/* Footer-Stil */
+footer {
+  width: 100%;
+  background-color: #4db5ff;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 0;
+}
