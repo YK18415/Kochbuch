@@ -4,6 +4,8 @@ html, body, #root {
   width: 100%;
   margin: 0;
   padding: 0;
+  scrollbar-width: none; /* versteckt Scrollbar für Firefox */
+  -ms-overflow-style: none; /* kein Scrollbalken für IE und alte Edge-Versionen*/
 }
 
 /* Das App-Container-Layout */
@@ -21,6 +23,13 @@ main {
   display: block; /* wichtig: block, nicht flex */
   box-sizing: border-box;
 }
+
+/* Scrollbar komplett ausblenden, aber Scrollen erlauben */
+/* Für Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
 
 /* Header-Stil */
 header {

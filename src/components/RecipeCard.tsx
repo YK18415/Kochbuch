@@ -1,11 +1,23 @@
 import './RecipeCard.css'
 
-export default function RecipeCard(props: any) {
+interface Recipe {
+    id: number
+    title: string
+    time: number
+    description: string
+}
+
+interface RecipeProps {
+    recipe: Recipe
+}
+
+export default function RecipeCard({recipe}: RecipeProps) {
     return (
         
             <div className="recipe-card">
-                <h2>Nudeln mit Gemüsesauce</h2>
-                <h3>Rezeptnummer: {props.num}</h3>
+                <h2>{recipe.title}</h2>
+                <h3>Rezeptnummer: {recipe.id}</h3>
+                <h4>Zeit: {recipe.time}</h4>
             </div>
     )
 }
