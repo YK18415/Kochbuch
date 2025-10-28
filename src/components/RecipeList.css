@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 0 5vw; /* 👈 etwas Rand links/rechts, aber nicht zu viel */
+  padding: 0 5vw; /* etwas Rand links/rechts, aber nicht zu viel */
   box-sizing: border-box;
 }
 
@@ -13,7 +13,7 @@
   width: 100%;
 }
 
-/* 🔹 Filter-/Sortierleiste über den Cards */
+/* Filter-/Sortierleiste über den Cards */
 .filter-bar {
   display: flex;
   align-items: center;
@@ -69,4 +69,27 @@
   justify-content: start;
   width: 100%;
   box-sizing: border-box;
+}
+
+/* Neues-Rezept-hinzufügen-Button unter den Cards */
+.btnAddRecipe-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85%; /* gleich breit wie der Grid-Bereich */
+  margin-top: 2rem;
+  gap: 1rem;
+  font-size: 1rem;
+  color: #c9d1ff;
+}
+.btnAddRecipe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35%; /* 35% des Grid-Bereiches */
+  margin-top: 2rem;
+  gap: 1rem;
+  font-size: 1rem;
+  background-color: #3a3a5a;
+  color: #c9d1ff;
 }

@@ -1,7 +1,8 @@
 import './RecipeList.css'
 import RecipeCard from './RecipeCard'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from "react";
+import { createClient } from "@supabase/supabase-js";
 
 interface Recipe {
   id: number
@@ -10,9 +11,28 @@ interface Recipe {
   description: string
 }
 
-export default function RecipeList() {
-  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
+const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY);
 
+export default function RecipeList() {
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [showNewRecipePopup, setShowNewRecipePopup] = useState<Boolean>(false);
+
+  // Recipes laden:
+  useEffect (() => {
+    getRecipes();
+  }, []);
+
+  async function getRecipes() {
+    const {data, error} = await supabase.from("Recipe").select();
+    if (error) {
+      console.log(error);
+      return;
+    }
+    setRecipes(data ?? []); // Wenn null, dann leeres Array
+  }
+
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc')
+/*
   const recipes: Recipe[] = [
     { id: 1, title: 'Nudeln mit Gemüsesauce', time: 45, description: 'Leckere Nudeln mit frischem Gemüse' },
     { id: 2, title: 'Kartoffelsuppe', time: 30, description: 'Hausgemachte Kartoffelsuppe' },
@@ -22,7 +42,7 @@ export default function RecipeList() {
     { id: 6, title: 'Tomatensalat', time: 10, description: 'Erfrischend leicht' },
     { id: 7, title: 'Tomatensalat', time: 10, description: 'Erfrischend leicht' },
     { id: 8, title: 'Tomatensalat', time: 10, description: 'Erfrischend leicht' }
-  ]
+  ] */
 
   // Sortiere Rezepte nach ausgewählter Reihenfolge
   const sortedRecipes = [...recipes].sort((a, b) =>
@@ -53,6 +73,11 @@ export default function RecipeList() {
             </Link>
           ))}
         </div>
+      </div>
+
+      {/* Rezept hinzufügen */}
+      <div className='btnAddRecipe-wrapper'>
+          <button className='btnAddRecipe' onClick={() => console.log("Neues Rezept hinzufügen")} >Neues Rezept hinzufügen</button>
       </div>
     </div>
   )
