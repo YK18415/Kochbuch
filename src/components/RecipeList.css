@@ -76,7 +76,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 85%; /* gleich breit wie der Grid-Bereich */
+  width: 100%; /* gleich breit wie der Popup-Bereich */
   margin-top: 2rem;
   gap: 1rem;
   font-size: 1rem;

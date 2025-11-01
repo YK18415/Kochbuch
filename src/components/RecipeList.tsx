@@ -14,9 +14,10 @@ interface Recipe {
 
 interface RecipeProps {
     recipes: Recipe[]
+    refreshRecipes: () => void;
 }
 
-export default function RecipeList({ recipes }: RecipeProps) {
+export default function RecipeList({ recipes, refreshRecipes }: RecipeProps) {
   const [showNewRecipePopup, setShowNewRecipePopup] = useState<Boolean>(false);
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | 'none'>('none')
 
@@ -61,7 +62,7 @@ export default function RecipeList({ recipes }: RecipeProps) {
 
       {
       showNewRecipePopup && (
-        <NewRecipePopup onClose={() => setShowNewRecipePopup(false)} />
+        <NewRecipePopup onClose={() => setShowNewRecipePopup(false)} onSaved={refreshRecipes} />
       )
     }
     </div>

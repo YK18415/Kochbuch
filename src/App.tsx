@@ -39,7 +39,7 @@ function App() {
       <Header />
       <main>
         <Routes>
-          <Route path='/' element={<RecipeList recipes={recipes} />} />
+          <Route path='/' element={<RecipeList recipes={recipes} refreshRecipes={getRecipes} />} />
           <Route path="/recipe/:id" element={<Recipe recipes={recipes}/>} />
         </Routes>
       </main>
