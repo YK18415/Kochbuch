@@ -16,7 +16,6 @@ export default function RecipeCard({recipe}: RecipeProps) {
         
             <div className="recipe-card">
                 <h2>{recipe.title}</h2>
-                <h3>Rezeptnummer: {recipe.id}</h3>
                 <h4>Zeit: {recipe.time}</h4>
             </div>
     )

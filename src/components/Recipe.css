@@ -1,0 +1,121 @@
+/* --- Seite übernimmt das globale Layout, kein zweiter dunkler Hintergrund --- */
+.recipe-page {
+  background: transparent; /* Wichtig: kein eigener Hintergrund! */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.5rem;
+  color: #e6e8ff;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* --- Headerbereich --- */
+.recipe-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.recipe-title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.recipe-time {
+  font-size: 1rem;
+  color: #a8a9cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+/* --- Zwei Cards nebeneinander --- */
+.recipe-content {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 70rem;
+  flex-wrap: wrap;
+}
+
+/* --- Card Design (leicht heller als Grundhintergrund, mit Schatten) --- */
+.recipe-detail-card {
+  background: #3a3a5a;
+  color: #c9d1ff;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  flex: 1;
+  min-width: 22rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.recipe-detail-card:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.5);
+}
+
+/* --- Abschnittstitel --- */
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+  border-bottom: 0.1rem solid #2e2e4a;
+  padding-bottom: 0.5rem;
+  color: #d5d6f0;
+}
+
+/* --- Zutatenliste --- */
+.ingredients-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+  font-size: 1rem;
+  color: #cfd3f0;
+}
+
+/* --- Beschreibung (Zubereitung) --- */
+.recipe-description {
+  line-height: 1.8;
+  font-size: 1rem;
+  color: #cfd3f0;
+  white-space: pre-line;
+}
+
+/* --- Button --- */
+.back-btn {
+  margin-top: 3rem;
+  background-color: #3a3a5a;
+  color: #c9d1ff;
+  border: none;
+  padding: 0.9rem 1.8rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-weight: 500;
+}
+
+.back-btn:hover {
+  background-color: #54547c;
+  transform: translateY(-0.1rem);
+}
+
+/* --- Responsive --- */
+@media (max-width: 48rem) {
+  .recipe-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .recipe-detail-card {
+    width: 100%;
+  }
+
+  .recipe-title {
+    font-size: 1.8rem;
+  }
+}

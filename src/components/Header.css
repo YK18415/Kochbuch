@@ -1,0 +1,14 @@
+.header {
+  position: relative;
+  text-align: center;
+}
+
+.header::after {
+  content: "";
+  display: block;
+  width: 80%;           /* <<--- Die Länge der Linie */
+  height: 0.05rem;
+  background-color: #2e2e4a;
+  margin: 0.5rem auto 0 auto; /* auto = zentriert */
+  border-radius: 0.1rem;
+}
